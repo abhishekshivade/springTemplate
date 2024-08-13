@@ -10,7 +10,8 @@ import com.example.demo.service.EmployeeService;
 
 @RestController
 @RequestMapping("/api/employees")
-@CrossOrigin(origins="http://localhost:3000")
+//@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class EmployeeController {
 
 	@Autowired
@@ -28,6 +29,7 @@ public class EmployeeController {
 	
 	@PostMapping
 	public Employee createEmployee(@RequestBody Employee employee) {
+		
 		return empService.saveEmployee(employee);
 	}
 	
